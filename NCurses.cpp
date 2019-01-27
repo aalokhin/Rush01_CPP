@@ -1,12 +1,13 @@
 # include "NCurses.hpp"
 
-NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info, NET &net_info) 
+NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info, NET &net_info, CPU &cpu_info) 
 {
 	this->_ram = ram;
 	this->_time = time;
 	this->_host_info = host_info;
 	this->_os_info = os_info;
 	this->_net_info = net_info;
+	this->_cpu_info = cpu_info;
 
 	initscr(); 
 	cbreak(); 
@@ -84,24 +85,54 @@ void 				NcursesOut::DrawStaticData()
 
 	tmpStr = this->_os_info.getOSname();
 	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 17, 1, "OS name: \n");
+	mvwprintw(_win, 17, 1, "OS name: ");
 	wattroff(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 17, 15, tmpStr.c_str());
 
 	tmpStr = this->_os_info.getOSver();
 	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 18, 1, "OS version: \n");
+	mvwprintw(_win, 18, 1, "OS version: ");
 	wattroff(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 18, 15, tmpStr.c_str());
 
 	tmpStr = this->_os_info.getOSbuild();
 	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 19, 1, "OS build: \n");
+	mvwprintw(_win, 19, 1, "OS build: ");
 	wattroff(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 19, 15, tmpStr.c_str());
 
 
+	tmpStr = this->_cpu_info.getModel();
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 23, 1, "Processor: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 23, 15, tmpStr.c_str());
+
+
+	tmpStr = this->_cpu_info.getHwMachine();
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 24, 1, "Hardware Machine: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 24, 19, tmpStr.c_str());
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 25, 1, "Cores number: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 25, 19, "%i", this->_cpu_info.GetNCPU());
+
+
+
+
+
+
+/*
+std::string getModel() const;
+std::string getHwMachine() const;
+std::string getHwModel() const;
+*/
+
 }
+
+
 
 void	NcursesOut::initColorPairs()
 {
@@ -132,6 +163,8 @@ void	NcursesOut::printOutput()
 		this->_ram.refresh();
 		this->_time.refresh();
 		this->_net_info.refresh();
+		this->_cpu_info.refresh();
+
 		drawRAM();
 
 	}
@@ -167,6 +200,17 @@ void					NcursesOut::drawRAM()
 	mvwprintw(_win, 21, 1, "Network info: ");
 	wattroff(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 21, 15, tmpStr.c_str());
+
+
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 26, 1, "Cores load: ");
+
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 28, 1, "CPU Usage:");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 28, 16, "%f", this->_cpu_info.GetCpuUsg());
+
+
 
 	
 

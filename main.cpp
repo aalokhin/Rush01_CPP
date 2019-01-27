@@ -1,7 +1,7 @@
 // #include "User.hpp"
 // #include "Time.hpp"
 // #include "OS.hpp"
-//#include "CPU.hpp"
+#include "CPU.hpp"
 #include "RAM.hpp"
 // #include "Network.hpp"
 #include "NET.hpp"
@@ -42,9 +42,10 @@ int 				main()
 	NET net_info;
 	Host host_info;
 	OS	 os_info;
+	CPU  cpu_info;
 
 
-	NcursesOut 	visualMode(ram, time, host_info, os_info, net_info);
+	NcursesOut 	visualMode(ram, time, host_info, os_info, net_info, cpu_info);
 
 	visualMode.printOutput();
 	//std::cout << "===>" << net_info.getNetworkInfo() << std::endl;

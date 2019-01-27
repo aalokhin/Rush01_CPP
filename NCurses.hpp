@@ -19,6 +19,8 @@
 # include "RAM.hpp"
 #include "Host.hpp"
 #include "OS.hpp"
+
+#include "CPU.hpp"
 # include "IMonitorDisplay.hpp"
 
 /*********************** Colects info on modules ************************/
@@ -30,7 +32,7 @@ class Time;
 class	NcursesOut : public IMonitorDisplay {
 
 	public:
-		NcursesOut(RAM &ram, Time &time, Host & host_info, OS & os_info, NET & net_info);
+		NcursesOut(RAM &ram, Time &time, Host & host_info, OS & os_info, NET & net_info, CPU & cpu_info);
 
 		~NcursesOut();
 		void 	printOutput();
@@ -44,6 +46,7 @@ class	NcursesOut : public IMonitorDisplay {
 		Host	_host_info;
 		OS 		_os_info;
 		NET		_net_info;
+		CPU 	_cpu_info;
 
 		void	initColorPairs();
 		void 	drawLines();
