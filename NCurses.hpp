@@ -44,6 +44,7 @@ class	NcursesOut : public IMonitorDisplay {
 
 		void	initColorPairs();
 		void 	drawLines();
+		void 	DrawStaticData();
 
 		void 	drawRAM();
 		

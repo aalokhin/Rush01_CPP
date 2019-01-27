@@ -28,10 +28,12 @@ NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info )
 	_win = newwin(this->y_wmax - 1, this->x_wmax/2, 0, 0);
 
 
+	
+	DrawStaticData();
+	drawLines();
 	wattron(_win, COLOR_PAIR(133));
 	wborder(_win, 42, 42, 42, 42, 42, 42, 42, 42);
 
-	drawLines();
 	wrefresh(_win);
 
 };
@@ -44,65 +46,13 @@ void				NcursesOut::drawLines()
 	mvwvline(_win, 0, 150, 42, this->y_wmax);
 }
 
-void	NcursesOut::initColorPairs()
+
+void 				NcursesOut::DrawStaticData()
 {
-	init_color(COLOR_GREEN, 0, 500, 0);
-	init_pair(1, COLOR_GREEN, COLOR_BLACK);
-	init_pair(2, COLOR_BLUE, COLOR_BLACK);
-	init_pair(3, COLOR_CYAN, COLOR_BLACK);
-	init_pair(4, COLOR_RED, COLOR_BLACK);
-	init_pair(5, COLOR_GREEN, COLOR_BLACK);
-	init_pair(6, COLOR_RED, COLOR_RED);
-	init_pair(7, COLOR_CYAN, COLOR_BLACK);
-	init_pair(11, COLOR_BLACK, COLOR_GREEN);
-	init_pair(12, COLOR_CYAN, COLOR_CYAN);
-	init_pair(22, COLOR_BLACK, COLOR_BLUE);
-	init_pair(33, COLOR_BLACK, COLOR_RED);
-	init_pair(44, COLOR_BLACK, COLOR_CYAN);
-	init_pair(55, COLOR_BLACK, COLOR_WHITE);
-	init_pair(133, COLOR_CYAN, COLOR_BLACK);	
+	std::string tmpStr;
 
-}
-
-void	NcursesOut::printOutput()
-{
-
-
-	while(true)
-	{
-		this->_ram.refresh();
-		this->_time.refresh();
-		this->_host_info.refresh();
-		this->_os_info.refresh();
-		drawRAM();
-
-	}
-
-
-}
-
-
-void					NcursesOut::drawRAM()
-{
-
-	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 1, 1, "Total memory: ");
-	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 1, 15, "%llu MB", this->_ram.getTotal());
-	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 3, 1, "Used memory:");
-	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 3, 15, "%llu MB", this->_ram.getUsed());
-	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 5, 1, "Free memory:");
-	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 5, 15, "%llu MB", this->_ram.getFree());
-
-	std::string tmpStr = this->_time.getCurrentTime();
-	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 7, 1, "Current date and time: ");
-	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 7, 24, tmpStr.c_str());
+	this->_host_info.refresh();
+	this->_os_info.refresh();
 
 	tmpStr = this->_host_info.getHost();
 	wattron(_win, COLOR_PAIR(1));
@@ -154,6 +104,68 @@ void					NcursesOut::drawRAM()
 	mvwprintw(_win, 19, 15, tmpStr.c_str());
 
 
+}
+
+void	NcursesOut::initColorPairs()
+{
+	init_color(COLOR_GREEN, 0, 500, 0);
+	init_pair(1, COLOR_GREEN, COLOR_BLACK);
+	init_pair(2, COLOR_BLUE, COLOR_BLACK);
+	init_pair(3, COLOR_CYAN, COLOR_BLACK);
+	init_pair(4, COLOR_RED, COLOR_BLACK);
+	init_pair(5, COLOR_GREEN, COLOR_BLACK);
+	init_pair(6, COLOR_RED, COLOR_RED);
+	init_pair(7, COLOR_CYAN, COLOR_BLACK);
+	init_pair(11, COLOR_BLACK, COLOR_GREEN);
+	init_pair(12, COLOR_CYAN, COLOR_CYAN);
+	init_pair(22, COLOR_BLACK, COLOR_BLUE);
+	init_pair(33, COLOR_BLACK, COLOR_RED);
+	init_pair(44, COLOR_BLACK, COLOR_CYAN);
+	init_pair(55, COLOR_BLACK, COLOR_WHITE);
+	init_pair(133, COLOR_CYAN, COLOR_BLACK);	
+
+}
+
+void	NcursesOut::printOutput()
+{
+
+
+	while(true)
+	{
+		this->_ram.refresh();
+		this->_time.refresh();
+
+		drawRAM();
+
+	}
+
+
+}
+
+
+void					NcursesOut::drawRAM()
+{
+
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 1, 1, "Total memory: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 1, 15, "%llu MB", this->_ram.getTotal());
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 3, 1, "Used memory:");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 3, 15, "%llu MB", this->_ram.getUsed());
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 5, 1, "Free memory:");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 5, 15, "%llu MB", this->_ram.getFree());
+
+	std::string tmpStr = this->_time.getCurrentTime();
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 7, 1, "Current date and time: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 7, 24, tmpStr.c_str());
+
+	
 
 
 	
