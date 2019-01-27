@@ -128,15 +128,6 @@ Ethernet Cards:
       mDNS offload capable: a8:60:b6:39:2c:44
       Version: 10.3.1
 
-      Type: USB
-      BSD name: en5
-      Kext name: AppleUSBEthernetHost.kext
-      Location: /System/Library/Extensions/AppleUSBEthernetHost.kext
-      Version: 8.1.1
-      MAC Address: 6e:96:cf:ab:4d:23
-      Product ID: 4768
-      Vendor ID: 1452
-
 Graphics/Displays:
 
     Radeon Pro 570:
@@ -635,7 +626,7 @@ Software:
 
       System Version: macOS 10.13.3 (17D47)
       Kernel Version: Darwin 17.4.0
-      Time since boot: 2 days 21:59
+      Time since boot: 2 days 23:49
 
 Thunderbolt:
 
@@ -722,20 +713,6 @@ USB:
           Current Required (mA): 500
           Extra Operating Current (mA): 0
           Built-In: Yes
-
-        iPhone:
-
-          Product ID: 0x12a8
-          Vendor ID: 0x05ac (Apple Inc.)
-          Version: 8.01
-          Serial Number: bf5586a32f8066c0507129c6999924a1737eb506
-          Speed: Up to 480 Mb/sec
-          Manufacturer: Apple Inc.
-          Location ID: 0x14300000 / 8
-          Current Available (mA): 500
-          Current Required (mA): 500
-          Extra Operating Current (mA): 1600
-          Sleep current (mA): 2100
 
         Apple Optical USB Mouse:
 

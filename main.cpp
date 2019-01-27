@@ -7,6 +7,7 @@
 
 #include "Time.hpp"
 # include "NCurses.hpp"
+#include "OS.hpp"
 
 #include <unistd.h>
 #include <sys/types.h>
@@ -35,43 +36,17 @@ int 				main()
 		return (0);
 	}
 	std::cout << GREEN1 << ".............  we created all_info.txt file ........................\n";
-	// int sysctlbyname( char *sname,
- //                  void *oldp,
- //                  size_t *oldlenp,
- //                  void * newp,
- //                  size_t newlen );
-
-	
-	//std::vector<double> _loadAVG;
-	//sysctlbyname("hw.ncpu", &coreNum, &size, NULL, 0);
-
-
-
-	// sysctlbyname("hw.ncpu", &coreNum, &size, NULL, 0);
-	
-	// this->_cores.push_back(coreNum);
-
-	// this->_loadAVG.clear();
-	// double avg[3];
- //    getloadavg(avg, 3);
-	// this->_loadAVG.push_back(avg[0]);
-	// this->_loadAVG.push_back(avg[1]);
-	// this->_loadAVG.push_back(avg[2]);
 
 	RAM ram;
 	Time time;
+	Host host_info;
+	OS	 os_info;
 
-	NcursesOut 	visualMode(ram, time);
+
+	NcursesOut 	visualMode(ram, time, host_info, os_info);
 
 	visualMode.printOutput();
 
-
-	// int coreNum;
-
-
-	// sysctlbyname("hw.ncpu", &coreNum, &size, NULL, 0);
-
-	// std::cout << GREEN << coreNum  << std::endl;
 
 	return 0;
 }

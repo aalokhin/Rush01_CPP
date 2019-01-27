@@ -1,8 +1,8 @@
 NAME = ft_gkrellm
 
-SRC = main.cpp NCurses.cpp RAM.cpp Time.cpp
+SRC = main.cpp NCurses.cpp RAM.cpp Time.cpp Host.cpp OS.cpp
 
-OBJ = main.o NCurses.o RAM.o Time.o
+OBJ = main.o NCurses.o RAM.o Time.o Host.o OS.o
 
 FLAGS = -Wall -Wextra -Werror 
 
