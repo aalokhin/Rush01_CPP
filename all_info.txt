@@ -30,54 +30,39 @@ Bluetooth:
           Instant Hot Spot Supported: No
           Manufacturer: Broadcom
           Transport: USB
-          Chipset: 20703A2
-          Firmware Version: v61 c4253
+          Chipset: 20703A1
+          Firmware Version: v153 c4800
           Connectable: Yes
           Auto Seek Pointing: On
           Remote wake: On
           Vendor ID: 0x05AC
-          Product ID: 0x8296
+          Product ID: 0x8294
           Auto Seek Keyboard: On
       Devices (Paired, Configured, etc.):
           Device 0:
-              Major Type: Peripheral
-              Minor Type: Mouse
-              Services: 
-          Device 1:
-              Major Type: Peripheral
-              Minor Type: Keyboard
-              Services: 
-          Device 2:
-              Major Type: Peripheral
-              Minor Type: Mouse
-              Services: 
-          Device 3:
-              Major Type: Peripheral
-              Minor Type: Keyboard
-              Services: 
-          Device 4:
-              Major Type: Audio
-              Minor Type: Headset
-              Services: MVIEW, MVIEW, Advanced Audio, Hands-Free unit
-              EDR Supported: Yes
-              eSCO Supported: Yes
-              SSP Supported: Yes
-          Device 5:
               Major Type: Audio
               Minor Type: Headset
               Services: Headset, Hands-Free unit
+              Manufacturer: Cambridge Silicon Radio (0x7, 0x2E3B)
+              Firmware Version: 0x0116
+              Vendor ID: 0x0A12
+              Product ID: 0x0001
+              EDR Supported: Yes
+              eSCO Supported: Yes
+              SSP Supported: Yes
+          Device 1:
+              Major Type: Audio
+              Minor Type: Headset
+              Services: Hands-Free unit, Headset
               Manufacturer: Cambridge Silicon Radio (0x7, 0x21C8)
               EDR Supported: Yes
               eSCO Supported: Yes
               SSP Supported: Yes
-          Device 6:
+          Device 2:
               Major Type: Audio
-              Minor Type: Headphones
-              Services: Headset, Hands-Free unit, CSR GAIA‚Ñ¢
-              Manufacturer: Cambridge Silicon Radio (0x8, 0x2B4C)
-              Firmware Version: 0xFFFF
-              Vendor ID: 0x000A
-              Product ID: 0xFFFF
+              Minor Type: Headset
+              Services: Headset, Hands-Free unit
+              Manufacturer: Cambridge Silicon Radio (0x7, 0x21C8)
               EDR Supported: Yes
               eSCO Supported: Yes
               SSP Supported: Yes
@@ -105,7 +90,7 @@ Diagnostics:
 
     Power On Self-Test:
 
-      Last Run: 1/24/19, 2:18 PM
+      Last Run: 1/26/19, 9:55 PM
       Result: Passed
 
 Ethernet Cards:
@@ -125,27 +110,45 @@ Ethernet Cards:
       Kext name: AppleBCM5701Ethernet.kext
       Firmware version: 57766a-v1.15
       Location: /System/Library/Extensions/IONetworkingFamily.kext/Contents/PlugIns/AppleBCM5701Ethernet.kext
-      mDNS offload capable: a8:60:b6:39:2c:44
+      mDNS offload capable: 38:c9:86:33:0e:03
       Version: 10.3.1
 
 Graphics/Displays:
 
-    Radeon Pro 570:
+    AMD Radeon R9 M380:
 
-      Chipset Model: Radeon Pro 570
+      Chipset Model: AMD Radeon R9 M380
       Type: GPU
       Bus: PCIe
       PCIe Lane Width: x16
-      VRAM (Total): 4 GB
+      VRAM (Total): 2 GB
       Vendor: AMD (0x1002)
-      Device ID: 0x67df
-      Revision ID: 0x00c5
-      ROM Revision: 113-D000AA-931
-      VBIOS Version: 113-D0001A1L-025
-      EFI Driver Version: 01.00.931
+      Device ID: 0x6640
+      Revision ID: 0x0080
+      ROM Revision: 113-C6005R-800
+      VBIOS Version: 113-C6005T-009
+      EFI Driver Version: 01.00.800
       Metal: Supported, feature set macOS GPUFamily1 v3
       Displays:
         iMac:
           Display Type: Built-In Retina LCD
           Resolution: 5120 x 2880 Retina
-          Framebuffer Depth: 30-Bit
+          Framebuffer Depth: 30-Bit Color (ARGB2101010)
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Automatically Adjust Brightness: No
+
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: iMac
+      Model Identifier: iMac17,1
+      Processor Name: Intel Core i5
+      Processor Speed: 3.2 GHz
+      Number of Processors: 1
+      Total Number of Cores: 4
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 6 MB
+      Memory: 8 

@@ -4,7 +4,7 @@
 //#include "CPU.hpp"
 #include "RAM.hpp"
 // #include "Network.hpp"
-
+#include "NET.hpp"
 #include "Time.hpp"
 # include "NCurses.hpp"
 #include "OS.hpp"
@@ -39,13 +39,16 @@ int 				main()
 
 	RAM ram;
 	Time time;
+	NET net_info;
 	Host host_info;
 	OS	 os_info;
 
 
-	NcursesOut 	visualMode(ram, time, host_info, os_info);
+	NcursesOut 	visualMode(ram, time, host_info, os_info, net_info);
 
 	visualMode.printOutput();
+	//std::cout << "===>" << net_info.getNetworkInfo() << std::endl;
+
 
 
 	return 0;

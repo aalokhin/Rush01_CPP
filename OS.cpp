@@ -20,17 +20,11 @@ void OS::refresh()
 	this->_type = std::string(buffer);
 	memset(buffer, 0, sizeof(buffer));
 
-	// sysctlbyname("kern.version", buffer, &size, NULL, 0);
-	// this->_os = std::string(buffer);
-	// memset(buffer, 0, sizeof(buffer));
 
 	this->_release_date = sysctlbyname("kern.osreldate", buffer, &size, NULL, 0);
 
 	this->_os = std::string(findOS());
 
-	// sysctlbyname("kern.version", buffer, &size, NULL, 0);
-	// this->_version = std::string(buffer);
-	// memset(buffer, 0, sizeof(buffer));
 	this->_details =  std::string(versionDisplay());
 
 
@@ -59,20 +53,6 @@ void OS::split_string(const std::string & str, const std::string & delimiter)
 	prev = pos + 1;
 	std::string arr3(str.substr(prev));
 
-
-	// pos = str.find(delimiter, prev);
-	// std::string arr3(str.substr(prev, pos - prev));
-	// prev = pos + 1;
-
-
-	
-
-	// To get the last substring (or only, if delimiter is not found)
-	
-	// arr1.erase(arr1.find_last_not_of(" \n\r\t")+1);
-	// arr2.erase(arr2.find_last_not_of(" \n\r\t")+1);
-
-	// arr3.erase(arr3.find_last_not_of(" \n\r\t")+1);
 
 	this->_OSname = std::string(arr1);
 	this->_OSver = std::string(arr2);

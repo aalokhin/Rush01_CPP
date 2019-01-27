@@ -14,6 +14,8 @@
 # include <ncurses.h>
 
 #include "Time.hpp"
+
+#include "NET.hpp"
 # include "RAM.hpp"
 #include "Host.hpp"
 #include "OS.hpp"
@@ -28,7 +30,7 @@ class Time;
 class	NcursesOut : public IMonitorDisplay {
 
 	public:
-		NcursesOut(RAM &ram, Time &time, Host & host_info, OS & os_info);
+		NcursesOut(RAM &ram, Time &time, Host & host_info, OS & os_info, NET & net_info);
 
 		~NcursesOut();
 		void 	printOutput();
@@ -41,6 +43,7 @@ class	NcursesOut : public IMonitorDisplay {
 		Time   	_time;
 		Host	_host_info;
 		OS 		_os_info;
+		NET		_net_info;
 
 		void	initColorPairs();
 		void 	drawLines();

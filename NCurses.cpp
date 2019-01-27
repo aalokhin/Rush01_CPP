@@ -1,16 +1,12 @@
 # include "NCurses.hpp"
 
-NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info ) 
+NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info, NET &net_info) 
 {
-	// 	_ram(ram),
-	// _time(time),
-	// _host_info(host_info),
-	// _os_info(os_info)
-
 	this->_ram = ram;
 	this->_time = time;
 	this->_host_info = host_info;
 	this->_os_info = os_info;
+	this->_net_info = net_info;
 
 	initscr(); 
 	cbreak(); 
@@ -41,9 +37,8 @@ NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info )
 void				NcursesOut::drawLines()
 {
 	wattron(_win, COLOR_PAIR(133));
-	mvwvline(_win, 0, 50, 42, this->y_wmax);
-	mvwvline(_win, 0, 100, 42, this->y_wmax);
-	mvwvline(_win, 0, 150, 42, this->y_wmax);
+	mvwvline(_win, 0, 70, 42, this->y_wmax);
+	
 }
 
 
@@ -70,19 +65,21 @@ void 				NcursesOut::DrawStaticData()
 	wattron(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 13, 1, "OS: ");
 	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 13, 15, tmpStr.c_str());
-
-	tmpStr = this->_os_info.getVersion();
-	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 14, 1, "Version: ");
-	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 14, 15, tmpStr.c_str());
+	mvwprintw(_win, 13, 18, tmpStr.c_str());
 
 	tmpStr = this->_os_info.getType();
 	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 15, 1, "Type: ");
+	mvwprintw(_win, 14, 1, "Kernel: ");
 	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 15, 15, tmpStr.c_str());
+	mvwprintw(_win, 14, 18, tmpStr.c_str());
+
+	tmpStr = this->_os_info.getVersion();
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 15, 1, "Kernel Version: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 15, 18, tmpStr.c_str());
+
+
 
 
 	tmpStr = this->_os_info.getOSname();
@@ -134,7 +131,7 @@ void	NcursesOut::printOutput()
 	{
 		this->_ram.refresh();
 		this->_time.refresh();
-
+		this->_net_info.refresh();
 		drawRAM();
 
 	}
@@ -165,6 +162,12 @@ void					NcursesOut::drawRAM()
 	wattroff(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 7, 24, tmpStr.c_str());
 
+	tmpStr = this->_net_info.getNetworkInfo();
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 21, 1, "Network info: ");
+	wattroff(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 21, 15, tmpStr.c_str());
+
 	
 
 
@@ -173,10 +176,6 @@ void					NcursesOut::drawRAM()
 
 }
 
-
-// getOS
-// getVersion
-// getType
 
 
 NcursesOut::~NcursesOut()
