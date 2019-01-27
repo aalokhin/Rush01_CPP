@@ -31,6 +31,7 @@ class CPU: public IMonitorModule
 		int 	_number_cpu;
 		float 	_cpu_usage;
 
+
 		float GetAllUsage();
 		float CalculateCPULoad(unsigned long long idleTicks, unsigned long long totalTicks);
 

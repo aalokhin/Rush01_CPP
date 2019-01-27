@@ -13,6 +13,9 @@ void Host::refresh()
 
 }
 
+
+/******************************** COPLIEN ****************************/
+
 Host::Host(void) {return;}
 
 Host::Host(const Host& copy) {	*this = copy;}
@@ -21,6 +24,7 @@ Host::~Host(void) {	return;}
 
 Host & Host::operator=(const Host&) {return *this;}
 
+/******************************** GETTERS ****************************/
 
 std::string Host::getHost() {return this->_host;}
 std::string Host::getUser() {return this->_user;}

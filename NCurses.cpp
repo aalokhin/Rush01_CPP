@@ -202,13 +202,13 @@ void					NcursesOut::drawRAM()
 	mvwprintw(_win, 21, 15, tmpStr.c_str());
 
 
-	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 26, 1, "Cores load: ");
+	// wattron(_win, COLOR_PAIR(1));
+	// mvwprintw(_win, 26, 1, "Cores load: ");
 
 	wattron(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 28, 1, "CPU Usage:");
+	mvwprintw(_win, 26, 1, "CPU Usage:");
 	wattroff(_win, COLOR_PAIR(1));
-	mvwprintw(_win, 28, 16, "%f", this->_cpu_info.GetCpuUsg());
+	mvwprintw(_win, 26, 16, "%f", this->_cpu_info.GetCpuUsg());
 
 
 

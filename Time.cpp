@@ -18,6 +18,8 @@ std::string 	Time::getCurrentTime() const
 	return this->_time_date;
 }
 
+/******************************** COPLIEN ****************************/
+
 
 Time::Time(void) {return;}
 

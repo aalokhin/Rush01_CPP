@@ -52,7 +52,10 @@ void OS::split_string(const std::string & str, const std::string & delimiter)
 	std::string arr2(str.substr(prev, pos - prev));
 	prev = pos + 1;
 	std::string arr3(str.substr(prev));
-
+	
+	arr1.erase(0, 13);
+	arr2.erase(0, 16);
+	arr3.erase(0, 14);
 
 	this->_OSname = std::string(arr1);
 	this->_OSver = std::string(arr2);
@@ -114,7 +117,7 @@ std::string OS::getOSname() const{return this->_OSname;}
 std::string OS::getOSver() const{return this->_OSver;}
 std::string OS::getOSbuild() const{return this->_OSbuild;}
 
-
+/******************************** COPLIEN ****************************/
 
 OS::OS(void) {return;}
 
@@ -123,22 +126,3 @@ OS::OS(const OS& copy) {	*this = copy;}
 OS::~OS(void) {	return;}
 
 OS & OS::operator=(const OS&) {return *this;}
-
-
-
-
-	// char buffer[256];
-	// size_t size = sizeof(buffer);
-
-	// sysctlbyname("kern.version", buffer, &size, NULL, 0);
-	// this->_version = std::string(buffer);
-	// memset(buffer, 0, sizeof(buffer));
-
-	// sysctlbyname("kern.ostype", buffer, &size, NULL, 0);
-	// this->_type = std::string(buffer);
-	// memset(buffer, 0, sizeof(buffer));
-	
-
-	// sysctlbyname("kern.osreldate", buffer, &size, NULL, 0);
-	// this->_release_date = std::string(buffer);
-	// memset(buffer, 0, sizeof(buffer));

@@ -53,7 +53,7 @@ Bluetooth:
           Device 1:
               Major Type: Audio
               Minor Type: Headset
-              Services: Hands-Free unit, Headset
+              Services: Headset, Hands-Free unit
               Manufacturer: Cambridge Silicon Radio (0x7, 0x21C8)
               EDR Supported: Yes
               eSCO Supported: Yes
@@ -61,7 +61,7 @@ Bluetooth:
           Device 2:
               Major Type: Audio
               Minor Type: Headset
-              Services: Headset, Hands-Free unit
+              Services: Hands-Free unit, Headset
               Manufacturer: Cambridge Silicon Radio (0x7, 0x21C8)
               EDR Supported: Yes
               eSCO Supported: Yes
@@ -601,7 +601,7 @@ Software:
 
       System Version: macOS 10.13.3 (17D47)
       Kernel Version: Darwin 17.4.0
-      Time since boot: 19:11
+      Time since boot: 19:30
 
 Thunderbolt:
 

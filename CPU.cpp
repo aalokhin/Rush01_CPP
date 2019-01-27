@@ -13,10 +13,6 @@ void CPU::refresh()
 
 }
 
-
-
-
-
 float CPU::CalculateCPULoad(unsigned long long idleTicks, unsigned long long totalTicks)
 {
   unsigned long long totalSinceLast;
@@ -34,6 +30,7 @@ float CPU::CalculateCPULoad(unsigned long long idleTicks, unsigned long long tot
   
   _previousTotal = totalTicks;
   _previousIdle  = idleTicks;
+  
   return ret;
 }
 
@@ -46,13 +43,16 @@ float CPU::GetAllUsage()
 	mach_msg_type_number_t count;
 
 
+
+	int i;
+
 	count = HOST_CPU_LOAD_INFO_COUNT;
 
 
 	if (host_statistics(mach_host_self(), HOST_CPU_LOAD_INFO, (host_info_t)&cpuinfo, &count) == KERN_SUCCESS)
 	{
 		totalTicks = 0;
-		int i=0;
+		i = 0;
 
 		while (i < CPU_STATE_MAX)
 		{

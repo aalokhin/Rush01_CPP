@@ -11,7 +11,7 @@
 class	IMonitorDisplay {
 
 	public:
-		
+		~IMonitorDisplay(){}
 
 	protected:
 

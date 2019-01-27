@@ -1,10 +1,5 @@
 #ifndef NCURSES_HPP
 # define NCURSES_HPP
-
-
-
-
-
 # include <iostream>
 # include <ctime>
 # include <sstream>

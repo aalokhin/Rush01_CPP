@@ -19,7 +19,8 @@ class	IMonitorModule {
 
 	public:
 		virtual ~IMonitorModule() {}
-		virtual void refresh() = 0;		
+		virtual void refresh() = 0;
+	private:		
 
 
 };
