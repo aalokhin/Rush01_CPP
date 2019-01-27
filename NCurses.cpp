@@ -28,12 +28,7 @@ NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info, NET &
 	
 	DrawStaticData();
 	drawLines();
-	wattron(_win, COLOR_PAIR(133));
-
-	wborder(_win, 42, 42, 42, 42, 42, 42, 42, 42);
-
-
-	wrefresh(_win);
+	//wrefresh(_win);
 
 };
 
@@ -44,6 +39,7 @@ void				NcursesOut::drawLines()
 	wattron(_win, COLOR_PAIR(133));
 
 	wborder(_win, 42, 42, 42, 42, 42, 42, 42, 42);
+
 
 
 	// wattron(_win, COLOR_PAIR(133));
@@ -219,7 +215,8 @@ void	NcursesOut::initColorPairs()
 	init_pair(44, COLOR_BLACK, COLOR_CYAN);
 	init_pair(55, COLOR_BLACK, COLOR_WHITE);
 	init_pair(133, COLOR_CYAN, COLOR_BLACK);
-	init_pair(134, COLOR_CYAN, COLOR_CYAN);
+	init_pair(134, COLOR_BLUE, COLOR_BLUE);
+	//init_pair(134, COLOR_YELLOW, COLOR_YELLOW);
 
 	//init_pair(13, COLOR_ORANGE, COLOR_BLACK);	
 
@@ -271,7 +268,7 @@ void					NcursesOut::drawRAM()
 	if (bars < 15)
 		bars = 15;
 	wattron(_win, COLOR_PAIR(134));
-	mvwprintw(_win, 4, 73, ":");
+	//mvwprintw(_win, 4, 73, ":");
 	mvwprintw(_win, 4, 1, ":");
 	
 	while (i < bars)
@@ -295,7 +292,7 @@ void					NcursesOut::drawRAM()
 
 	bars = this->_ram.getFree() % 40;
 	wattron(_win, COLOR_PAIR(134));
-	mvwprintw(_win, 6, 73, ":");
+	//mvwprintw(_win, 6, 73, ":");
 	mvwprintw(_win, 6, 1, ":");
 	i = 0;
 	while (i < bars)
@@ -329,7 +326,7 @@ void					NcursesOut::drawRAM()
 
 	bars = (this->_cpu_info.GetCpuUsg()) * 30;
 	wattron(_win, COLOR_PAIR(134));
-	mvwprintw(_win, 27, 73, ":");
+	//mvwprintw(_win, 27, 73, ":");
 	mvwprintw(_win, 27, 1, ":");
 	// mvwprintw(_win, 28, 1, "%d", bars);
 	i = 0;

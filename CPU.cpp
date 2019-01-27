@@ -45,10 +45,17 @@ std::string CPU::LdAv()
 {
 	FILE* popOp;
  	char tmpBuf[256];
+ 	
+
  	std::string tmp;
  	popOp = popen("uptime | sed -n 's/.*averages://p'", "r");
+ 	
+
  	fgets(tmpBuf, sizeof(tmpBuf), popOp);
  	tmp = std::string(tmpBuf);	
+ 	
+
+
  	tmp.erase(0, 1);
  	tmp.erase(tmp.end() - 1, tmp.end());
 

@@ -12,6 +12,7 @@ class	IMonitorDisplay {
 
 	public:
 		~IMonitorDisplay(){}
+		virtual void DrawStaticData() = 0;
 
 	protected:
 
@@ -20,10 +21,4 @@ class	IMonitorDisplay {
 #endif
 
 
-// "    _                ___       _.--."
-// "    \\`.|\\..----...-'`   `-._.-'_.-'`"
-// "    /  ' `         ,       __.--'   "
-// "    )/' _/     \\   `-_,   /         "
-// "    `-'" `"\\_  ,_.-;_.-\\_ ',      "
-// "        _.-'_./   {_.'   ; /        "
-// "       {_.-``-'         {_/         "
+// 
