@@ -6,7 +6,7 @@ void	Time::refresh()
 	struct tm *tmp ; 
     char current_time[20]; 
     time( &t ); 
-    tmp = localtime(&t); 
+    tmp = localtime(&t);
     strftime(current_time, sizeof(current_time), "%Y-%m-%d %H:%M:%S", tmp);
 
     this->_time_date =  std::string(current_time);

@@ -17,6 +17,7 @@ class CPU: public IMonitorModule
 		std::string getModel() const;
 		std::string getHwMachine() const;
 		int GetNCPU()const;
+		std::string GetLoadAv() const;
 		
 		float GetCpuUsg()const ;
 		//std::string getModel() const;
@@ -28,8 +29,11 @@ class CPU: public IMonitorModule
 		std::string _cpuModel;
 		std::string	_hw_machine;
 
+		std::string _load_av;
+
 		int 	_number_cpu;
 		float 	_cpu_usage;
+
 
 
 		float GetAllUsage();
@@ -38,7 +42,7 @@ class CPU: public IMonitorModule
 		unsigned long long _previousTotal;
 		unsigned long long _previousIdle;
 
-
+		std::string LdAv();
 
 
 };

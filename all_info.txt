@@ -601,7 +601,7 @@ Software:
 
       System Version: macOS 10.13.3 (17D47)
       Kernel Version: Darwin 17.4.0
-      Time since boot: 19:30
+      Time since boot: 22:13
 
 Thunderbolt:
 

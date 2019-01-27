@@ -7,9 +7,15 @@
 
 
 
+
+
 void CPU::refresh()
 {
 	this->_cpu_usage = GetAllUsage();
+
+	this->_load_av =  LdAv();
+
+	
 
 }
 
@@ -30,10 +36,25 @@ float CPU::CalculateCPULoad(unsigned long long idleTicks, unsigned long long tot
   
   _previousTotal = totalTicks;
   _previousIdle  = idleTicks;
-  
+
   return ret;
 }
 
+
+std::string CPU::LdAv()
+{
+	FILE* popOp;
+ 	char tmpBuf[256];
+ 	std::string tmp;
+ 	popOp = popen("uptime | sed -n 's/.*averages://p'", "r");
+ 	fgets(tmpBuf, sizeof(tmpBuf), popOp);
+ 	tmp = std::string(tmpBuf);	
+ 	tmp.erase(0, 1);
+ 	tmp.erase(tmp.end() - 1, tmp.end());
+
+ 	pclose(popOp);
+ 	return (std::string(tmp));
+}
 
 
 float CPU::GetAllUsage()
@@ -79,7 +100,7 @@ int CPU::GetNCPU()const {return this->_number_cpu;}
 
 float	CPU::GetCpuUsg() const {return this->_cpu_usage;}
 
-
+std::string CPU::GetLoadAv() const{return this->_load_av;}
 
 /******************************** COPLIEN ****************************/
 
