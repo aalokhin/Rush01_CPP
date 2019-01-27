@@ -12,6 +12,7 @@
 # include <string>
 # include <vector>
 # include <ncurses.h>
+#include "Time.hpp"
 # include "RAM.hpp"
 
 # include "IMonitorDisplay.hpp"
@@ -20,10 +21,12 @@
 
 class RAM;
 
+class Time;
+
 class	NcursesOut : public IMonitorDisplay {
 
 	public:
-		NcursesOut(RAM &ram);
+		NcursesOut(RAM &ram, Time &time);
 
 		~NcursesOut();
 		void 	printOutput();
@@ -33,6 +36,7 @@ class	NcursesOut : public IMonitorDisplay {
 		WINDOW*		_win;
 
 		RAM		_ram;
+		Time   	_time;
 
 		void	initColorPairs();
 

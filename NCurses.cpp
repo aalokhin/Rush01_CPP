@@ -1,7 +1,8 @@
 # include "NCurses.hpp"
 
-NcursesOut::NcursesOut(RAM &ram){
+NcursesOut::NcursesOut(RAM &ram, Time &time){
 	this->_ram = ram;
+	this->_time = time; 
 
 
 	initscr(); 
@@ -57,6 +58,8 @@ void	NcursesOut::printOutput()
 	while(true)
 	{
 		this->_ram.refresh();
+		this->_time.refresh();
+
 		drawRAM();
 
 	}
@@ -80,7 +83,16 @@ void					NcursesOut::drawRAM()
 	mvwprintw(_win, 5, 1, "Free memory:");
 	wattroff(_win, COLOR_PAIR(1));
 	mvwprintw(_win, 5, 15, "%llu MB", this->_ram.getFree());
+
+	std::string tmpStr = this->_time.getCurrentTime();
+	wattron(_win, COLOR_PAIR(1));
+	mvwprintw(_win, 7, 1, "Current date and time: ");
+	wattroff(_win, COLOR_PAIR(1));
+
+	mvwprintw(_win, 7, 24, tmpStr.c_str());
+	
 	wrefresh(_win);
+
 }
 
 

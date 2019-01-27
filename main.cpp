@@ -5,7 +5,7 @@
 #include "RAM.hpp"
 // #include "Network.hpp"
 
-
+#include "Time.hpp"
 # include "NCurses.hpp"
 
 #include <unistd.h>
@@ -59,7 +59,9 @@ int 				main()
 	// this->_loadAVG.push_back(avg[2]);
 
 	RAM ram;
-	NcursesOut 	visualMode(ram);
+	Time time;
+
+	NcursesOut 	visualMode(ram, time);
 
 	visualMode.printOutput();
 
