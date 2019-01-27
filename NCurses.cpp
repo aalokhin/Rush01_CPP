@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   NCurses.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalokhin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/27 20:33:31 by aalokhin          #+#    #+#             */
+/*   Updated: 2019/01/27 20:33:33 by aalokhin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # include "NCurses.hpp"
 
 NcursesOut::NcursesOut(RAM &ram, Time &time, Host &host_info, OS &os_info, NET &net_info, CPU &cpu_info) 

@@ -27,7 +27,7 @@ class Time;
 class	NcursesOut : public IMonitorDisplay {
 
 	public:
-		NcursesOut(RAM &ram, Time &time, Host & host_info, OS & os_info, NET & net_info, CPU & cpu_info);
+		NcursesOut (RAM &ram, Time &time, Host & host_info, OS & os_info, NET & net_info, CPU & cpu_info);
 
 		~NcursesOut();
 		void 	printOutput();

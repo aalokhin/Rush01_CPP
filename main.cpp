@@ -1,9 +1,18 @@
-// #include "User.hpp"
-// #include "Time.hpp"
-// #include "OS.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalokhin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/01/27 20:34:36 by aalokhin          #+#    #+#             */
+/*   Updated: 2019/01/27 20:34:37 by aalokhin         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 #include "CPU.hpp"
 #include "RAM.hpp"
-// #include "Network.hpp"
 #include "NET.hpp"
 #include "Time.hpp"
 # include "NCurses.hpp"
@@ -24,18 +33,13 @@
 #define GREEN "\033[1;32m"
 #define NORMAL "\033[0m"
 #define BLUE "\033[1;34m"
+
 # include <ncurses.h>
 
 int 				main()
 {
-	pid_t			get_info;
 
-	if ((get_info = fork()) == 0)
-	{
-		system("system_profiler -detailLevel mini > all_info.txt");
-		return (0);
-	}
-	std::cout << GREEN1 << ".............  we created all_info.txt file ........................\n";
+	std::cout << GREEN1 << ".............  we created a display ........................\n";
 
 	RAM ram;
 	Time time;
@@ -43,6 +47,27 @@ int 				main()
 	Host host_info;
 	OS	 os_info;
 	CPU  cpu_info;
+ /*
+ 	this->_host_info.refresh();
+	this->_os_info.refresh();
+	
+
+	std::cout << GREEN1 << "Host: " << _host_info.getHost() <<  std::endl << std::endl;
+	std::cout << GREEN1 << "User: " << _host_info.getUser() <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS() <<  std::endl << std::endl;
+	std::cout << GREEN1 << "Kernel: " << _os_info.getType() <<  std::endl << std::endl;
+	std::cout << GREEN1 << "Kernel Version: " << _os_info.getVersion() <<  std::endl << std::endl;
+	
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	std::cout << GREEN1 << "OS: " << _os_info.getOS(); <<  std::endl << std::endl;
+	*/
 
 
 	NcursesOut 	visualMode(ram, time, host_info, os_info, net_info, cpu_info);

@@ -21,4 +21,3 @@ class	IMonitorDisplay {
 #endif
 
 
-// 
